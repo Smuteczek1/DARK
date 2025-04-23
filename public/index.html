@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>D.A.R.K. - UNAUTHORIZED ACCESS</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="welcome-page">
+    <div class="container">
+        <div class="terminal-window">
+                <div class="terminal-header">
+                    <span>> D.A.R.K. Terminal - Dostęp Zastrzeżony</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="logo-container">
+                        <img src="/logo" alt="D.A.R.K. Logo" class="dark-logo">
+                    </div>
+
+                    <div class="terminal" id="terminal"></div>
+
+                    <div class="warning-box hidden" id="warning-box">
+                        <h2 class="glitch">[NARUSZENIE PROTOKOŁU D.A.R.K.]</h2>
+                        <div class="terminal-separator">====================================</div>
+                        <p class="terminal-text">WYKRYTO NIEAUTORYZOWANY DOSTĘP</p>
+                        <p class="terminal-text">PROTOKÓŁ OBRONNY: <span class="glitch">AKTYWNY</span></p>
+                        <p class="terminal-text">POZIOM ZAGROŻENIA: <span class="glitch">KRYTYCZNY</span></p>
+                        <div class="terminal-separator">====================================</div>
+                        <p class="warning-text terminal-text">[OSTRZEŻENIE] Wykryto próbę włamania do systemu D.A.R.K.</p>
+                    </div>
+
+                    <div class="system-status hidden" id="system-status">
+                        <div class="terminal-separator">=== DIAGNOSTYKA SYSTEMU D.A.R.K. ===</div>
+                        <p class="terminal-text">> Rdzeń systemu: <span class="blink error">NIESTABILNY</span></p>
+                        <p class="terminal-text">> Firewall: <span class="error">NARUSZONY</span></p>
+                        <p class="terminal-text">> Integralność danych: <span class="warning">ZAGROŻONA</span></p>
+                        <p class="terminal-text">> Protokoły bezpieczeństwa: <span class="error">OFFLINE</span></p>
+                        <div class="terminal-separator">====================================</div>
+                    </div>
+
+                    <div class="terminal-separator">>>> DOSTĘP DO SYSTEMU D.A.R.K. <<<</div>
+                    <button id="enter-button" class="enter-button hidden terminal-button">[INICJALIZACJA POŁĄCZENIA]</button>
+                </div>
+            </div>
+        </div>
+    <script>
+        const terminalLines = [
+            'INICJALIZACJA SYSTEMU D.A.R.K....',
+            'SKANOWANIE LOKALNEJ SIECI...',
+            'WYKRYTO NIEAUTORYZOWANY DOSTĘP DO BAZY E.I.D.',
+            'PRÓBA PRZECHWYCENIA SYGNAŁU [E.I.D.-783]...',
+            'BŁĄD 0x4023-A: WYKRYTO NIESTABILNOŚĆ W BAZIE DANYCH',
+            'OSTRZEŻENIE: NARUSZENIE PROTOKOŁU E.I.D.-404',
+            'BŁĄD KRYTYCZNY: ANOMALIA E.I.D.-666 AKTYWNA',
+            'PRÓBA IZOLACJI ZAGROŻENIA...',
+            'BŁĄD 0x7FFF: UTRATA KONTROLI NAD SYSTEMEM E.I.D.',
+            'AWARIA SYSTEMU BEZPIECZEŃSTWA...',
+            'WYKRYTO MULTIPLE E.I.D. BREACHES W SEKTORZE C-17',
+            'PRÓBA RESTARTU PROTOKOŁÓW OBRONNYCH...',
+            'BŁĄD: SYSTEM NIESTABILNY',
+            'OSTRZEŻENIE: WYKRYTO ANOMALIĘ W SEKTORZE B-7',
+            'INICJALIZACJA EMERGENCY SHUTDOWN...',
+            'BŁĄD KRYTYCZNY: CAŁKOWITA UTRATA KONTROLI'
+        ];
+
+        const terminal = document.getElementById('terminal');
+        let lineIndex = 0;
+
+        const typeText = async (element, text, speed = 50) => {
+            let dots = '';
+            for (let char of text) {
+                if (text.endsWith('...') && char === '.') {
+                    dots += char;
+                    element.textContent = text.slice(0, -3) + dots;
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                } else {
+                    element.textContent += char;
+                    await new Promise(resolve => setTimeout(resolve, speed));
+                }
+            }
+        };
+
+        const addTerminalLine = async () => {
+            if (lineIndex < terminalLines.length) {
+                const line = document.createElement('div');
+                line.className = 'terminal-line';
+                const prefix = Math.random() < 0.3 ? '!> ERROR: ' : '> ';
+                await typeText(line, prefix + terminalLines[lineIndex]);
+                terminal.appendChild(line);
+                lineIndex++;
+                
+                // Dodaj losowe błędy
+                if (Math.random() < 0.2) {
+                    const errorLine = document.createElement('div');
+                    errorLine.className = 'terminal-line error';
+                    errorLine.textContent = `[0x${Math.floor(Math.random() * 65535).toString(16).toUpperCase()}] CRITICAL SYSTEM FAILURE`;
+                    terminal.appendChild(errorLine);
+                }
+                
+                // Auto-scroll z efektem przesunięcia
+                terminal.scrollTop = terminal.scrollHeight;
+
+                if (lineIndex === terminalLines.length) {
+                    setTimeout(() => {
+                        document.getElementById('warning-box').classList.remove('hidden');
+                        setTimeout(() => {
+                            document.getElementById('system-status').classList.remove('hidden');
+                            setTimeout(() => {
+                                const enterButton = document.getElementById('enter-button');
+                                enterButton.classList.remove('hidden');
+                                typeText(enterButton, 'WEJDŹ DO SYSTEMU');
+                            }, 1000);
+                        }, 1000);
+                    }, 1000);
+                }
+            }
+        };
+
+        const startTerminal = async () => {
+            for (let i = 0; i < terminalLines.length; i++) {
+                await new Promise(resolve => setTimeout(resolve, 800));
+                await addTerminalLine();
+            }
+        };
+
+        document.getElementById('enter-button').addEventListener('click', async () => {
+            const overlay = document.createElement('div');
+            overlay.className = 'terminal-fullscreen';
+            document.body.appendChild(overlay);
+
+            const errorContainer = document.createElement('div');
+            errorContainer.className = 'error-container';
+            overlay.appendChild(errorContainer);
+
+            for (let i = 0; i < 20; i++) {
+                const error = document.createElement('div');
+                error.className = 'error-line';
+                error.textContent = `BŁĄD KRYTYCZNY 0x${Math.floor(Math.random() * 9999).toString(16).toUpperCase()}: NARUSZENIE PROTOKOŁU BEZPIECZEŃSTWA`;
+                errorContainer.appendChild(error);
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            document.body.style.opacity = '0';
+
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            window.location.href = '/wiki';
+        });
+
+        startTerminal();
+    </script>
+</body>
+</html>

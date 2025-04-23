@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>D.A.R.K. Wiki - Katalog Anomalii</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="wiki-container">
+        <nav class="wiki-nav terminal-style">
+            <div class="terminal-window">
+                <div class="terminal-header text-center glitch-text">
+                    <span>>> D.A.R.K. <<</span>
+                </div>
+                <div class="terminal-header corrupted-text">
+                    <span>[SYSTEM] Terminal - Nawigacja</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="nav-buttons">
+                        <a href="/wiki" class="nav-panel">
+                            <div class="terminal-separator">===================</div>
+                            <div class="panel-text">Strona Główna</div>
+                            <div class="terminal-separator">===================</div>
+                        </a>
+                        <a href="/wiki/eidsystem" class="nav-panel">
+                            <div class="terminal-separator">===================</div>
+                            <div class="panel-text">E.I.D. System</div>
+                            <div class="terminal-separator">===================</div>
+                        </a>
+                        <a href="/wiki/anomalies" class="nav-panel">
+                            <div class="terminal-separator">===================</div>
+                            <div class="panel-text">Katalog Anomalii</div>
+                            <div class="terminal-separator">===================</div>
+                        </a>
+                        <a href="/wiki/personnel" class="nav-panel">
+                            <div class="terminal-separator">===================</div>
+                            <div class="panel-text">Personel</div>
+                            <div class="terminal-separator">===================</div>
+                        </a>
+                        <a href="/wiki/reports" class="nav-panel">
+                            <div class="terminal-separator">===================</div>
+                            <div class="panel-text">Raporty</div>
+                            <div class="terminal-separator">===================</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="wiki-content terminal-style">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span id="terminalPath">> D.A.R.K. Terminal - Katalog Anomalii</span>
+                </div>
+                <div class="terminal-body">
+                    <div id="eidEntries" class="terminal-entries">
+                        <div class="terminal-line">> D.A.R.K. Terminal - Katalog Anomalii</div>
+                        <div class="terminal-line">> Inicjalizacja systemu...</div>
+                        <div class="terminal-line">> Ładowanie bazy danych E.I.D....</div>
+                        <div class="terminal-line">> Dostęp przyznany. Wyświetlam listę:</div>
+                        <div class="terminal-line terminal-button" onclick="showAddEIDModal()">[+ DODAJ NOWĄ ANOMALIĘ]</div>
+                    </div>
+                </div>
+
+                <!-- Modal do dodawania nowej anomalii -->
+                <div id="addEIDModal" class="modal" style="display: none;">
+                    <div class="modal-content terminal-window">
+                        <div class="terminal-header">
+                            <span>> Dodawanie Nowej Anomalii</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line">Proponowane ID: <span id="suggestedId">4000</span></div>
+                            <input type="text" id="newEidId" class="terminal-input" onchange="validateEidId(this.value)">
+                            <div id="idValidation" class="terminal-line"></div>
+                            <input type="text" id="newEidName" placeholder="Nazwa" class="terminal-input">
+                            <textarea id="newEidDescription" placeholder="Opis" class="terminal-input" spellcheck="true"></textarea>
+                            <select id="newEidDisruptionLevel" class="terminal-input">
+                                <option value="">Wybierz Poziom Zakłóceń</option>
+                                <option value="Null">⚪ Null - Brak zauważalnych zakłóceń</option>
+                                <option value="Verdant">🟢 Verdant - Minimalne zakłócenia</option>
+                                <option value="Azure">🔵 Azure - Lokalnie ograniczone zakłócenia</option>
+                                <option value="Amber">🟡 Amber - Zakłócenia na poziomie miejskim</option>
+                                <option value="Tangerine">🟠 Tangerine - Zakłócenia na skalę krajową</option>
+                                <option value="Crimson">🔴 Crimson - Poważne zakłócenia</option>
+                                <option value="Obsidian">⚫ Obsidian - Ekstremalne zakłócenia</option>
+                                <option value="Navy">🔵 Navy - Globalne zakłócenia</option>
+                                <option value="Violet">🟣 Violet - Zakłócenia o nieznanym charakterze</option>
+                            </select>
+                            <select id="newEidRiskLevel" class="terminal-input">
+                                <option value="">Wybierz Poziom Ryzyka</option>
+                                <option value="Null">⚪ Null - Brak zagrożenia</option>
+                                <option value="Caution">🟢 Caution - Niskie zagrożenie</option>
+                                <option value="Alert">🔵 Alert - Umiarkowane zagrożenie</option>
+                                <option value="Warning">🟡 Warning - Znaczące zagrożenie</option>
+                                <option value="Danger">🟠 Danger - Wysokie zagrożenie</option>
+                                <option value="Critical">🔴 Critical - Ekstremalne zagrożenie</option>
+                                <option value="Obsidian">⚫ Obsidian - Katastrofalne zagrożenie</option>
+                                <option value="Abyss">🟣 Abyss - Nieznane zagrożenie</option>
+                            </select>
+                            <textarea id="newEidProcedures" placeholder="Procedury" class="terminal-input"></textarea>
+                            <textarea id="newEidHistory" placeholder="Historia" class="terminal-input"></textarea>
+                            <textarea id="newEidNotes" placeholder="Notatki" class="terminal-input"></textarea>
+                            <div class="terminal-controls">
+                                <button onclick="saveNewEID()" class="terminal-button">[ZAPISZ]</button>
+                                <button onclick="closeAddEIDModal()" class="terminal-button">[ANULUJ]</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        async function generateNextAvailableId() {
+            const response = await fetch('/database/eid_entries');
+            const entries = await response.json();
+            const existingIds = entries.map(entry => parseInt(entry.id));
+            let proposedId = 2; // Start from 002
+
+            while (existingIds.includes(proposedId)) {
+                proposedId++;
+            }
+
+            // Format the ID to have at least 3 digits
+            const formattedId = proposedId.toString().padStart(3, '0');
+            document.getElementById('suggestedId').textContent = formattedId;
+            document.getElementById('newEidId').value = formattedId;
+            return formattedId;
+        }
+
+        async function validateEidId(id) {
+            const response = await fetch('/database/eid_entries');
+            const entries = await response.json();
+            const existingIds = entries.map(entry => entry.id);
+            const validationDiv = document.getElementById('idValidation');
+
+            if (existingIds.includes(id)) {
+                validationDiv.innerHTML = '❌ ID jest już zajęte';
+                validationDiv.style.color = '#ff0000';
+                await generateNextAvailableId(); // Generate new suggestion if ID is taken
+                return false;
+            } else if (!/^\d{3,}$/.test(id)) {
+                validationDiv.innerHTML = '❌ ID musi składać się z minimum 3 cyfr';
+                validationDiv.style.color = '#ff0000';
+                return false;
+            } else {
+                validationDiv.innerHTML = '✅ ID jest dostępne';
+                validationDiv.style.color = '#00ff00';
+                return true;
+            }
+        }
+
+        // Call generateNextAvailableId when modal is opened
+        function showAddEIDModal() {
+            document.getElementById('addEIDModal').style.display = 'block';
+            generateNextAvailableId();
+        }
+
+        async function loadEIDEntries() {
+            const response = await fetch('/database/eid_entries');
+            const entries = await response.json();
+            const container = document.getElementById('eidEntries');
+
+            container.innerHTML = `
+                <div class="terminal-line">> D.A.R.K. Terminal - Katalog Anomalii</div>
+                <div class="terminal-line">> Inicjalizacja systemu...</div>
+                <div class="terminal-line">> Ładowanie bazy danych E.I.D....</div>
+                <div class="terminal-line">> Dostęp przyznany. Wyświetlam listę:</div>
+                <div class="terminal-line terminal-button" onclick="showAddEIDModal()">[+ DODAJ NOWĄ ANOMALIĘ]</div>
+            `;
+
+            entries.forEach(entry => {
+                const separator = '==============================================';
+                const entryDiv = document.createElement('div');
+                entryDiv.className = 'eid-entry-link';
+                entryDiv.innerHTML = `
+                    <div class="separator">${separator}</div>
+                    <div class="entry-title">E.I.D.-${entry.id}: ${entry.name}</div>
+                    <div class="separator">${separator}</div>
+                `;
+
+                entryDiv.addEventListener('click', () => showEIDDetails(entry));
+                container.appendChild(entryDiv);
+            });
+        }
+
+        function showEIDDetails(entry) {
+            document.getElementById('terminalPath').textContent = `> D.A.R.K. Terminal - Katalog Anomalii/E.I.D.-${entry.id}`;
+
+            const container = document.getElementById('eidEntries');
+            container.innerHTML = `
+                <div class="terminal-line">> Wyświetlam szczegóły E.I.D.-${entry.id}</div>
+                <div class="terminal-line">==============================================</div>
+                <div class="terminal-line">Nazwa: ${entry.name}</div>
+                <div class="terminal-line">Poziom Zakłóceń: <span class="level-${entry.disruption_level.toLowerCase()}">${entry.disruption_level}</span></div>
+                <div class="terminal-line">Poziom Ryzyka: <span class="risk-${entry.risk_level.toLowerCase()}">${entry.risk_level}</span></div>
+                <div class="terminal-line">==============================================</div>
+                <div class="terminal-line">Opis:</div>
+                <div class="terminal-line">${entry.description}</div>
+                <div class="terminal-line">==============================================</div>
+                <div class="terminal-line">Procedury:</div>
+                <div class="terminal-line">${entry.procedures}</div>
+                <div class="terminal-line">==============================================</div>
+                <div class="terminal-line">Historia:</div>
+                <div class="terminal-line">${entry.history}</div>
+                <div class="terminal-line">==============================================</div>
+                <div class="terminal-line">Notatki:</div>
+                <div class="terminal-line">${entry.notes}</div>
+                <div class="terminal-line">==============================================</div>
+                <div class="back-button terminal-line">> [POWRÓT DO LISTY]</div>
+            `;
+
+            document.querySelector('.back-button').addEventListener('click', () => {
+                document.getElementById('terminalPath').textContent = '> D.A.R.K. Terminal - Katalog Anomalii';
+                loadEIDEntries();
+            });
+        }
+
+        function showAddEIDModal() {
+            document.getElementById('addEIDModal').style.display = 'block';
+        }
+
+        function closeAddEIDModal() {
+            document.getElementById('addEIDModal').style.display = 'none';
+        }
+
+        async function saveNewEID() {
+            const newEID = {
+                id: document.getElementById('newEidId').value,
+                name: document.getElementById('newEidName').value,
+                description: document.getElementById('newEidDescription').value,
+                disruption_level: document.getElementById('newEidDisruptionLevel').value,
+                risk_level: document.getElementById('newEidRiskLevel').value,
+                procedures: document.getElementById('newEidProcedures').value,
+                history: document.getElementById('newEidHistory').value,
+                notes: document.getElementById('newEidNotes').value
+            };
+
+            try {
+                const response = await fetch('/save_eid', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(newEID)
+                });
+
+                if (response.ok) {
+                    alert('E.I.D. zostało pomyślnie zapisane!');
+                    closeAddEIDModal();
+                    loadEIDEntries();
+                } else {
+                    alert('Wystąpił błąd podczas zapisywania E.I.D.');
+                }
+            } catch (error) {
+                console.error('Błąd podczas zapisywania:', error);
+                alert('Wystąpił błąd podczas zapisywania E.I.D.');
+            }
+        }
+
+        loadEIDEntries();
+    </script>
+</body>
+</html>

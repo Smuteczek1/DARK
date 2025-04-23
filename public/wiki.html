@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>D.A.R.K. Wiki</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="wiki-container">
+        <nav class="wiki-nav terminal-style">
+            <div class="terminal-window">
+                <div class="terminal-header text-center glitch-text">
+                    <span>>> D.A.R.K. <<</span>
+                </div>
+                <div class="terminal-header corrupted-text">
+                    <span>[SYSTEM] Terminal - Nawigacja</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="nav-buttons">
+                        <a href="/wiki" class="nav-panel">
+                            <div class="terminal-separator">===================</div>
+                            <div class="panel-text">Strona Główna</div>
+                            <div class="terminal-separator">===================</div>
+                        </a>
+                        <a href="/wiki/eidsystem" class="nav-panel">
+                            <div class="terminal-separator">===================</div>
+                            <div class="panel-text">E.I.D. System</div>
+                            <div class="terminal-separator">===================</div>
+                        </a>
+                        <a href="/wiki/anomalies" class="nav-panel">
+                            <div class="terminal-separator">===================</div>
+                            <div class="panel-text">Katalog Anomalii</div>
+                            <div class="terminal-separator">===================</div>
+                        </a>
+                        <a href="/wiki/personnel" class="nav-panel">
+                            <div class="terminal-separator">===================</div>
+                            <div class="panel-text">Personel</div>
+                            <div class="terminal-separator">===================</div>
+                        </a>
+                        <a href="/wiki/reports" class="nav-panel">
+                            <div class="terminal-separator">===================</div>
+                            <div class="panel-text">Raporty</div>
+                            <div class="terminal-separator">===================</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="wiki-content terminal-style">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span>> D.A.R.K. Terminal - Strona Główna</span>
+                </div>
+                <div class="terminal-body" id="terminalContent">
+                    <div class="logo-center">
+                        <img src="/logo" alt="D.A.R.K. Logo" class="dark-logo">
+                    </div>
+                    <div class="terminal-line text-center error-text">> [BŁĄD] Inicjalizacja systemu...</div>
+                    <div class="terminal-line text-center warning-text">> [OSTRZEŻENIE] Wykryto naruszenie protokołu bezpieczeństwa</div>
+                    <div class="terminal-line text-center corrupted">> [BŁĄD] Ładowanie bazy danych D.A.R.K.... [NIESTABILNE]</div>
+                    <div class="terminal-line text-center error-text">> [BŁĄD] Naruszenie integralności systemu</div>
+                    <div class="terminal-line text-center">==============================================</div>
+                    <div class="terminal-line text-center glitch">SYSTEM D.A.R.K. - STAN KRYTYCZNY</div>
+                    <div class="terminal-line text-center">==============================================</div>
+                    <div class="terminal-line text-center corrupted">STATUS: [NIESTABILNY]</div>
+                    <div class="terminal-line text-center error-text">POZIOM DOSTĘPU: [NARUSZONY]</div>
+                    <div class="terminal-line text-center warning-text">SYSTEM E.I.D.: [BŁĄD KRYTYCZNY]</div>
+                    <div class="terminal-line text-center">==============================================</div>
+                    <div class="terminal-line text-center blink">> [UWAGA] Wykryto próbę nieautoryzowanego dostępu</div>
+                    <div class="terminal-line text-center error-text">> [BŁĄD] Protokoły bezpieczeństwa naruszone</div>
+                    <div class="terminal-line text-center corrupted">> [SYSTEM] Próba przywrócenia stabilności...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lines = document.querySelectorAll('.terminal-line');
+            
+            lines.forEach(line => {
+                const text = line.textContent;
+                line.textContent = '';
+                line.style.opacity = '1';
+                
+                let charIndex = 0;
+                const writeText = () => {
+                    if (charIndex < text.length) {
+                        line.textContent += text[charIndex];
+                        charIndex++;
+                        setTimeout(writeText, 30);
+                    } else {
+                        line.style.animation = 'glowPulse 2s infinite';
+                    }
+                };
+                
+                setTimeout(() => {
+                    writeText();
+                }, Array.from(lines).indexOf(line) * 1500);
+            });
+        });
+    </script>
+</body>
+</html>

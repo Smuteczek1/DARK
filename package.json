@@ -1,0 +1,11 @@
+{
+  "name": "my-project",
+  "module": "index.ts",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "type": "module",
+  "dependencies": {
+    "bun": "^1.2.10"
+  }
+}

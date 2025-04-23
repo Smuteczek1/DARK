@@ -1,0 +1,87 @@
+☢️ Poziom Zakłóceń – Disruption Level
+Null ⚪ – Brak zauważalnych zakłóceń
+„Cisza to tylko wdech przed krzykiem.”
+
+Obiekt niemal idealnie wtapia się w otoczenie. Nie zmienia rzeczywistości, nie wpływa na bieg wydarzeń. Jest... niemal obojętny. Ale milczenie to też forma ekspresji. Obiekt klasy Null może być snem – lub jego końcem. Często bagatelizowany. Niesłusznie.
+
+Verdant 🟢 – Minimalne zakłócenia
+„To, co organiczne, zawsze pierwsze odczuwa zmianę.”
+
+Zakłócenia występują w obrębie lokalnym, subtelne i często niezauważalne bez precyzyjnych pomiarów. Przypływ niepokoju wśród zwierząt. Milknące owady. Zgnilizna tam, gdzie przed chwilą kwitło życie. Obiekt w tej klasie potrafi zmienić rytm serca przyrody... zanim zauważy to człowiek.
+
+Azure 🔵 – Lokalnie ograniczone zakłócenia
+„Miasto śni o czymś, co nigdy się nie wydarzyło – a jednak boli.”
+
+Obiekt generuje zakłócenia zauważalne na poziomie miejskim. Znikające dzielnice, ludzie tracący wspomnienia jednej nocy, zbiorowe halucynacje. Czasem to tylko echo... ale echo czego? Azure oznacza, że obiekt zmienia nie tylko przestrzeń – zmienia percepcję.
+
+Amber 🟡 – Zakłócenia na poziomie miejskim
+„Światło migocze. Wspomnienia się kruszą. Ludzie zaczynają mówić innymi językami.”
+
+Zakłócenia stają się zbyt duże, by je zignorować. Wpływ na populacje miejskie, struktury infrastrukturalne i rzeczywistość lokalną. Budynki zmieniają geometrię, czas płynie nieliniowo, a światło zaczyna zachowywać się irracjonalnie. Obiekt klasy Amber nie jest już ukryty. On manifestuje się.
+
+Tangerine 🟠 – Zakłócenia na skalę krajową
+„Granice państw przestają mieć znaczenie, gdy to, co nienazwane, wybiera sobie terytorium.”
+
+Wpływ obiektu przekracza granice geograficzne. Media zaczynają szukać odpowiedzi, które już dawno zostały spalone. Populacja doświadcza masowych zmian – języka, kultury, biologii. Czasem nawet samego postrzegania śmierci. Tangerine to poziom, przy którym państwa upadają, a cywilizacja zaczyna pękać.
+
+Crimson 🔴 – Poważne zakłócenia
+„Niebo zmienia kolor. Ludzie przestają umierać – albo przestają rodzić się.”
+
+Zakłócenia stają się fundamentalne. Prawa fizyki zawodzą. Czas traci kierunek. Całe społeczeństwa zostają... zastąpione. Obiekt Crimson redefiniuje podstawowe zasady egzystencji i robi to z milczącą precyzją. Od tego poziomu nie ma powrotu do „normalności”. To słowo przestaje mieć sens.
+
+Obsidian ⚫ – Ekstremalne zakłócenia
+„Światło nie odbija się już od powierzchni. Nic nie chce być widziane.”
+
+Obiekt deformuje rzeczywistość w sposób trwały i agresywny. Naruszenia struktury przestrzeni, załamania światła, mutacje konceptualne. Jego obecność powoduje, że ludzie zaczynają kwestionować własną egzystencję. Obsidian to koniec narracji, ale nie koniec istnienia. To zakwestionowanie logiki samej świadomości.
+
+Navy 🔵 – Globalne zakłócenia
+„Cała planeta śni jeden sen, z którego nie da się obudzić.”
+
+To nie jest problem lokalny. To nie jest problem regionalny. To koniec świata, tylko nikt jeszcze nie zauważył. Morza parują, księżyc się rozmywa, a historia zmienia swój bieg każdej nocy. Navy to status, przy którym rzeczywistość przestaje być wspólna dla wszystkich.
+
+Violet 🟣 – Zakłócenia niepojęte
+„Nie da się tego opisać. Każde słowo staje się kłamstwem.”
+
+Zakłócenia przekraczają możliwości ludzkiego pojmowania. Czas, przestrzeń, świadomość i znaczenie przestają istnieć w formach zrozumiałych dla homo sapiens. Obiekt Violet nie zakłóca rzeczywistości – on tworzy alternatywę. A potem ją porzuca.
+
+☣️ Poziom Ryzyka – Risk Level
+Null ⚪ – Brak zagrożenia
+„Obserwuje. Nic więcej.”
+
+Obiekt całkowicie pasywny. Brak jakiejkolwiek interakcji czy agresji. Można badać go bez większych obaw – o ile się nie myli...
+
+Caution 🟢 – Niskie zagrożenie
+„Dotyka, ale nie gryzie. Jeszcze.”
+
+Obiekt posiada właściwości potencjalnie niebezpieczne, ale tylko w określonych warunkach. Zazwyczaj bezpieczny przy zachowaniu podstawowych protokołów. Problem pojawia się, gdy „zasady” się zmieniają.
+
+Alert 🔵 – Umiarkowane zagrożenie
+„Ignoruj go – i zginiesz przez nieuwagę.”
+
+Obiekt może być niebezpieczny, jeśli zostanie źle zrozumiany lub sprowokowany. Niektóre jego efekty są nieoczywiste – psychologiczne, memetyczne, czasem semantyczne. Wymaga stałego nadzoru.
+
+Warning 🟡 – Znaczące zagrożenie
+„To nie bestia. To coś, co rozumie, że jesteś.”
+
+Aktywny, trudny do przewidzenia. Może celowo oddziaływać na otoczenie. Wchodzi w interakcje, które przekraczają znane modele myślenia. Obiekt tej klasy działa – i nie zawsze potrzebuje powodu.
+
+Danger 🟠 – Wysokie zagrożenie
+„Nie patrz w oczy. One nie są jego.”
+
+Zdolny do natychmiastowej eskalacji zagrożenia. Obiekt może zabić, zmanipulować lub przejąć kontrolę. Wymaga zaawansowanych protokołów zabezpieczeń. Każda interakcja musi być przemyślana – i uprzednio zatwierdzona przez Komórkę Theta.
+
+Critical 🔴 – Ekstremalne zagrożenie
+„Wymazuje istnienie z kronik i wspomnień. A potem przychodzi po więcej.”
+
+Obiekt o potencjale apokaliptycznym. Może unicestwić znaczne obszary, zainfekować ludzką świadomość lub zmienić trajektorię całych cywilizacji. Nie istnieje bezpieczna odległość. Każdy kontakt to ryzyko totalnej eliminacji.
+
+Obsidian ⚫ – Katastrofalne zagrożenie
+„To nie coś, z czym walczysz. To coś, co kończy opowieść.”
+
+Każda próba interakcji kończy się porażką. Obiekt niemożliwy do zabezpieczenia. Samo jego istnienie destabilizuje rzeczywistość. Obsidian to status nadawany wtedy, gdy jedynym rozwiązaniem jest zapomnienie.
+
+Abyss 🟣 – Nieznane zagrożenie
+„Zadajesz pytanie. Dostajesz ciszę. I już nie jesteś sobą.”
+
+Nie wiadomo, czym jest. Nie wiadomo, co robi. Nie wiadomo, czy to w ogóle jest. Każda próba klasyfikacji kończy się paranoją, zniknięciem lub czymś gorszym. Abyss to ryzyko istnienia czegoś, co nie powinno mieć nazwy.
+
